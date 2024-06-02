@@ -20,3 +20,74 @@ For dataset based analysis, the folder Dataset Pipelines contains the data prepr
 
 ## Running Pipelines
 1. Create a new python venv using ```requirements.txt``` file in the main directory. 
+
+```
+conda create --name <env_name> --file requirements.txt
+```
+
+2. In each folder the specific and agnostic scenarios are accomodated in each notebook labelled as the same. For trying different combinations of datasets the following code snippet can be modified : 
+
+**Specific Scenario**
+The following code snippet ensures that we train and test on SBU dataset with the training set and testing set having disjoint set of sequences from the dataset split at random.
+````
+'''
+    We can create any combination of datasets for training and 
+    testing in this pipeline to create the training and testing sets.
+    
+    fixed_data, free_data --> proposed dataset
+    buffalo_fixed, buffalo_free --> buffalo dataset
+    gm_fixed, gm_free --> SBU (Gay Marriage)
+    gnc_fixed, gnc_free --> SBU (Gun Control)
+    rs_fixed, rs_free --> SBU (Restaurant Reviews)
+'''
+
+## Train : SBU Dataset, Test: Proposed Dataset
+fixed_data_test = {}
+free_data_test = {}
+
+## For specific case combine the datasets into the training set only. Leave the test set empty.
+
+fixed_data_train = {}
+free_data_train = {}
+
+fixed_data_train.update(gm_fixed)
+fixed_data_train = update_dict(fixed_data_train,rs_fixed)
+fixed_data_train = update_dict(fixed_data_train,gnc_fixed)
+
+free_data_train.update(gm_free)
+free_data_train = update_dict(free_data_train,rs_free)
+free_data_train = update_dict(free_data_train,gnc_free)
+````
+
+**Agnostic Scenario**
+The following code snippet ensures that we train on the topics with Gun Control & Restaurant Feedback as context and train on sequences with Gay Marriage as the context with the training set and testing set having disjoint set of sequences from the dataset split at random.
+````
+'''
+    We can create any combination of datasets for training and 
+    testing in this pipeline to create the training and testing sets.
+    
+    fixed_data, free_data --> proposed dataset
+    buffalo_fixed, buffalo_free --> buffalo dataset
+    gm_fixed, gm_free --> SBU (Gay Marriage)
+    gnc_fixed, gnc_free --> SBU (Gun Control)
+    rs_fixed, rs_free --> SBU (Restaurant Reviews)
+'''
+
+## Train : SBU Dataset, Test: Proposed Dataset
+fixed_data_test = {}
+free_data_test = {}
+
+fixed_data_test.update_dict(gm_fixed)
+free_data_test.update_dict(gm_free)
+
+## For specific case combine the datasets into the training set only. Leave the test set empty.
+
+fixed_data_train = {}
+free_data_train = {}
+
+fixed_data_train = update_dict(fixed_data_train,rs_fixed)
+fixed_data_train = update_dict(fixed_data_train,gnc_fixed)
+
+free_data_train = update_dict(free_data_train,rs_free)
+free_data_train = update_dict(free_data_train,gnc_free)
+````
