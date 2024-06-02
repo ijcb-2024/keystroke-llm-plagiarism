@@ -25,7 +25,15 @@ For dataset based analysis, the folder Dataset Pipelines contains the data prepr
    conda create --name <env_name> --file requirements.txt
    ```
 
-2. In each folder the specific and agnostic scenarios are accomodated in each notebook labelled as the same. For trying different combinations of datasets the following code snippet can be modified : 
+2. Loading Dataset <br/>
+   In order to load the dataset unzip the given datasets. Modify the following global variable for setting the dataset path in the jupyter notebook.
+   ```
+   ## Root Dataset Directory
+   
+   ROOT = "../Proposed Dataset"
+   ```
+
+3. In each folder the specific and agnostic scenarios are accomodated in each notebook labelled as the same. For trying different combinations of datasets the following code snippet can be modified : 
 
     **Specific Scenario** <br/>
     The following code snippet ensures that we train and test on SBU dataset with the training set and testing set having disjoint set of sequences from the dataset split at random.
@@ -91,3 +99,14 @@ For dataset based analysis, the folder Dataset Pipelines contains the data prepr
     free_data_train = update_dict(free_data_train,rs_free)
     free_data_train = update_dict(free_data_train,gnc_free)
     ````
+4. Global Variables <br/>
+   In order to run custom experiments and fine tune the models modify these global variables in the notebook for running different versions of the model and optimising the performance.
+   ```
+   M -- Sequence Length for each input sequence in the model
+   BATCH_SIZE -- Batch Size for model input
+   LR -- Learning Rate
+   EPOCHS -- Number of epochs to train the model
+   DROPOUT -- Model Dropout
+   ```
+
+
