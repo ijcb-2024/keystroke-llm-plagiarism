@@ -21,9 +21,9 @@ For dataset based analysis, the folder Dataset Pipelines contains the data prepr
 ## Running Pipelines
 1. Create a new python venv using ```requirements.txt``` file in the main directory. 
 
-```
-conda create --name <env_name> --file requirements.txt
-```
+   ```
+   conda create --name <env_name> --file requirements.txt
+   ```
 
 2. In each folder the specific and agnostic scenarios are accomodated in each notebook labelled as the same. For trying different combinations of datasets the following code snippet can be modified : 
 
