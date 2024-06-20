@@ -29,11 +29,12 @@ For dataset-based analysis, the folder Dataset Pipelines contains the data prepr
    ```
 
 2. Loading Dataset <br/>
-   In order to load the dataset unzip the given datasets. Modify the following global variable for setting the dataset path in the jupyter notebook.
+   In order to load the dataset unzip the given datasets and combine them under a single folder heading. Modify the following global variable for setting the dataset path in the jupyter notebook.
+   
    ```
    ## Root Dataset Directory
    
-   ROOT = "../Proposed Dataset"
+   ROOT = "../Dataset"
    ```
 
 3. In each folder the specific and agnostic scenarios are accomodated in each notebook labelled as the same. For trying different combinations of datasets the following code snippet can be modified : 
