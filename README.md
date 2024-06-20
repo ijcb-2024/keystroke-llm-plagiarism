@@ -22,6 +22,9 @@ For dataset-based analysis, the folder Dataset Pipelines contains the data prepr
 1. Create a new python venv using ```requirements.txt``` file in the main directory. 
 
    ```
+   conda config --append channels conda-forge
+   conda config --append channels pytorch
+   conda config --append channels nvidia
    conda create --name <env_name> --file requirements.txt
    ```
 
